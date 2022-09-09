@@ -19,15 +19,16 @@ namespace Torneio_de_Luta.Controllers
 
         public async Task<IActionResult> Index()
         {
+            List<Lutador> lutadores = null;
             try
             {
-                var lutadores = await GetLutadores();
+                lutadores = await GetLutadores();
             }catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-            return View();
+            return View(lutadores);
         }
 
         public IActionResult Privacy()
