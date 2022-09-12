@@ -14,16 +14,16 @@ namespace Torneio_de_Luta.Models
             _atleta2 = atleta2;
         }
 
-        private Lutador DefinirVencedor()
+        public Lutador DefinirVencedor()
         {
             
-            int porcentagemDeVitoriasDoAtleta1 = (_atleta1.Vitorias / _atleta1.Lutas) * 100;
-            int porcentagemDeVitoriasDoAtleta2 = (_atleta2.Vitorias / _atleta2.Lutas) * 100;
+            float porcentagemDeVitoriasDoAtleta1 = ((float)_atleta1.Vitorias / (float)_atleta1.Lutas) * 100.0f;
+            float porcentagemDeVitoriasDoAtleta2 = ((float)_atleta2.Vitorias / (float)_atleta2.Lutas) * 100.0f;
 
-            if(porcentagemDeVitoriasDoAtleta1 > porcentagemDeVitoriasDoAtleta2)
+            if((int)porcentagemDeVitoriasDoAtleta1 > (int)porcentagemDeVitoriasDoAtleta2)
             {
                 Vencedor = _atleta1;
-            }else if (porcentagemDeVitoriasDoAtleta1 == porcentagemDeVitoriasDoAtleta2)
+            }else if ((int)porcentagemDeVitoriasDoAtleta1 == (int)porcentagemDeVitoriasDoAtleta2)
             {
                 Vencedor = DefinirDesempate();
             }
@@ -31,7 +31,11 @@ namespace Torneio_de_Luta.Models
             {
                 Vencedor = _atleta2;
             }
-            //TODO: Mudar Classificação do Lutador Vencedor
+
+            Vencedor.Vitorias++;
+            Vencedor.Lutas++;
+            MudarClassificacao(Vencedor);
+
             return Vencedor;
         }
 
@@ -51,6 +55,26 @@ namespace Torneio_de_Luta.Models
                 resultadoDoDesempate = _atleta2;
             }
             return resultadoDoDesempate;
+        }
+
+        private void MudarClassificacao(Lutador vencedor)
+        {
+            var classificacao = vencedor.Classificado;
+            switch (classificacao)
+            {
+                case Classificacao.OITAVAS:
+                    vencedor.Classificado = Classificacao.QUARTAS;
+                    break;
+                case Classificacao.QUARTAS:
+                    vencedor.Classificado = Classificacao.SEMIFINAL;
+                    break;
+                case Classificacao.SEMIFINAL:
+                    vencedor.Classificado = Classificacao.FINAL;
+                    break;
+                default:
+                    classificacao = Classificacao.OITAVAS;
+                    break;
+            }
         }
     }
 }
