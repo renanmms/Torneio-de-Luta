@@ -5,21 +5,25 @@
 }
 
 <h1 class="display-1 text-center">Torneio de Luta</h1>
-<button type="text-center" class="btn btn-primary" asp-controller="Home" asp-action="Iniciar"> Iniciar Torneio </button>
+<form asp-action="Resultado" method="get">
 
-<div class="container">
-    <div class="card-deck">
-        @foreach(var card in Model)
-        {
-            <div class="card bg-light">
-                <div class="card-body text-center">
-                    <header class="display-5 bg-info"> @card.Nome </header>
-                    <p class="card-text"> <strong> Idade: </strong> @card.Idade </p>
-                    <p class="card-text"> <strong> Lutas: </strong> @card.Lutas </p>
-                    <p class="card-text"> <strong> Vitorias: </strong> @card.Vitorias</p>
-                    <p class="card-text"><strong> Derrotas: </strong> @card.Derrotas</p>
-                </div>
-            </div>   
-        }
-       
+    <button type="text-center" class="btn btn-primary mb-1"> Iniciar Torneio </button>
+
+</form>
+
+
+<div class="card-deck">
+    @foreach(var card in Model)
+    {
+        <div class="card bg-light mb-2">
+            <div class="card-body text-center">
+                <header class="card-header"> @card.Nome </header>
+                <input class="mt-2" type="checkbox" />
+                <p class="card-text"> <strong> Idade: </strong> @card.Idade </p>
+                <p class="card-text"> <strong> Lutas: </strong> @card.Lutas </p>
+                <p class="card-text"> <strong> Vitorias: </strong> @card.Vitorias</p>
+                <p class="card-text"><strong> Derrotas: </strong> @card.Derrotas</p>
+            </div>
+        </div>   
+    }  
 </div>
