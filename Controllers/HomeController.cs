@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Torneio_de_Luta.InputModels;
 using Torneio_de_Luta.Models;
 
 namespace Torneio_de_Luta.Controllers
