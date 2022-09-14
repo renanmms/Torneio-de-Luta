@@ -24,15 +24,16 @@ A tela inicial possui 37 lutadores da qual é possível selecionar somente 16 de
 
 - Nome
 - Idade
-- Lutas
+- Quantidade de Lutas
 - Vitórias
 - Derrotas
 - Quantidade de Artes Marciais
 
+![image](https://user-images.githubusercontent.com/41764187/190203116-2a0d6188-0ba1-465e-ac3a-27a1e7280e08.png)
 
 Para selecionar os Lutadores que irão participar do Torneio, basta clicar nas caixas de seleção que ficam logo abaixo do nome do Lutador, após selecionado os participantes, clicar no botão **Iniciar Torneio**.
 
-![image](https://user-images.githubusercontent.com/41764187/190054949-3b97fd64-d1a3-4f0d-8199-96b229127279.png)
+O campeão do torneio é definido após uma série de lutas entre os lutadores, e todos os lutadores possuem uma classificação (oitavas, quartas de final, semi final e final), o vencedor de uma luta é definido pela sua porcentagem de vitórias que é `( nº de vitórias / nº total de lutas ) * 100`, se houver empate deve definir o desempate pelo lutador com maior quantidade de artes marciais, senão é definido pelo lutador com maior número de lutas, logo a classificação do lutador é alterada dependendo de sua classificação atual.
 
 Por fim, é mostrado a tela com o campeão do torneio, e logo abaixo tem a opção de **Jogar Novamente**.
 
