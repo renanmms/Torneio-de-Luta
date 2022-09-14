@@ -1,5 +1,4 @@
-﻿using Torneio_de_Luta.Services.Interfaces;
-
+﻿
 namespace Torneio_de_Luta.Models
 {
     public class Luta
@@ -54,6 +53,7 @@ namespace Torneio_de_Luta.Models
             {
                 resultadoDoDesempate = _atleta2;
             }
+
             return resultadoDoDesempate;
         }
 

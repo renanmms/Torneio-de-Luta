@@ -7,9 +7,13 @@
 @{
 }
 
+<div class="text-center">
 
-<h1 class="display-1">Campeão do Torneio</h1>
+    <h1 class="display-1">Campeão do Torneio</h1>
 
-<img src="~/images/trophy.jpg" width="250px" height="250px"></img>
+    <img src="~/images/trophy.jpg" width="250px" height="250px"></img>
 
-<h2>@Model.Nome</h2>
+    <h2 class="display-5">@Model.Nome</h2>
+
+    <a asp-action="Index" class="btn btn-primary mt-4">Jogar Novamente</a>
+</div>

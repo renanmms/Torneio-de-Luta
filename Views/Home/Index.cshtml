@@ -1,29 +1,47 @@
 ﻿@model List<Lutador>;
 @{
     ViewData["Title"] = "Torneio de Luta";
-    var primeiroLutador = Model.First();
 }
 
 <h1 class="display-1 text-center">Torneio de Luta</h1>
-<form asp-action="Resultado" method="get">
-
-    <button type="text-center" class="btn btn-primary mb-1"> Iniciar Torneio </button>
-
-</form>
 
 
-<div class="card-deck">
-    @foreach(var card in Model)
-    {
-        <div class="card bg-light mb-2">
-            <div class="card-body text-center">
-                <header class="card-header"> @card.Nome </header>
-                <input class="mt-2" type="checkbox" />
-                <p class="card-text"> <strong> Idade: </strong> @card.Idade </p>
-                <p class="card-text"> <strong> Lutas: </strong> @card.Lutas </p>
-                <p class="card-text"> <strong> Vitorias: </strong> @card.Vitorias</p>
-                <p class="card-text"><strong> Derrotas: </strong> @card.Derrotas</p>
+@using (Html.BeginForm())
+{
+    <input class="btn btn-primary text-center" type="submit" value="Iniciar Torneio" />
+    <div class="card-deck d-flex flex-wrap">
+        @for(int i = 0; i < Model.Count; i++)
+        {
+
+            <div class="card bg-light m-lg-2 mb-2" style="width: 12rem;" >
+                <div class="card-body text-center">
+                    <header class="card-header"> @Model[i].Nome </header>
+                    <label class="mb-2" >Selecionar: </label>
+
+                    @Html.HiddenFor(m => Model[i].Id)
+                    @Html.HiddenFor(m => Model[i].Nome)
+                    @Html.HiddenFor(m => Model[i].Idade)
+                    @Html.HiddenFor(m => Model[i].Lutas)
+                    @Html.HiddenFor(m => Model[i].Vitorias)
+                    @Html.HiddenFor(m => Model[i].Derrotas)
+
+                    @for(int j = 0; j < Model[i].ArtesMarciais.Count; j++)
+                    {
+                        @Html.HiddenFor(m => Model[i].ArtesMarciais[j])
+                    }
+                    
+                    @Html.HiddenFor(m => Model[i].Classificado)
+                    @Html.CheckBoxFor(m => Model[i].Selecionado, new { @value = "True" })
+                    
+
+                    <p class="card-text"> <strong> Idade: </strong> @Model[i].Idade </p>
+                    <p class="card-text"> <strong> Lutas: </strong> @Model[i].Lutas </p>
+                    <p class="card-text"> <strong> Vitorias: </strong> @Model[i].Vitorias</p>
+                    <p class="card-text"><strong> Derrotas: </strong> @Model[i].Derrotas</p>
+                </div>
             </div>
-        </div>   
-    }  
-</div>
+        }  
+    </div>
+}
+
+
