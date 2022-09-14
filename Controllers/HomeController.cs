@@ -12,18 +12,16 @@ namespace Torneio_de_Luta.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IApiService _service;
 
-        public HomeController(ILogger<HomeController> logger, IApiService service)
+        public HomeController(IApiService service)
         {
-            _logger = logger;
             _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            List<Lutador> lutadores = null;
+            var lutadores = new List<Lutador>();
             try
             {
                 lutadores = await _service.GetLutadores();
