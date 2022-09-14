@@ -5,18 +5,30 @@ O projeto Torneio de Luta foi feito com ASP.NET Core MVC e C#, consiste em uma t
 ## Requisitos Necessários:
 
 - [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-- [Visual Studio Community](https://visualstudio.microsoft.com/pt-br/vs/community/)
+- [Visual Studio Community](https://visualstudio.microsoft.com/pt-br/vs/community/) ou [Visual Studio Code]()
 
 ## Como rodar o projeto:
 
+### Visual Studio Community:
+
 1. Instalar os softwares listados nos [Requisitos Necessários](https://github.com/renanmms/Torneio-de-Luta/edit/master/README.md#requisitos-necess%C3%A1rios).
-2. Abrir o Visual Studio Community e ir na opção **Clonar um repositório**.
+2. Abrir uma nova janela do Visual Studio Community e ir na opção de **Clonar um repositório**.
 3. Preencher o campo **Local do repositório** com o link do repositório.
 
-`https://github.com/renanmms/Torneio-de-Luta.git`
+> https://github.com/renanmms/Torneio-de-Luta.git
 
 4. Abrir o **Gerenciador de Soluções** indo em **Exibir**, e em seguida abrir a solução.
 5. Rodar o projeto indo na opção **Depurar** e **Iniciar Depuração**, ou aperte a tecla de atalho **F5**.
+
+### Visual Studio Code:
+
+1. Abrir uma nova janela do Visual Studio Code
+2. Abrir o menu **Explorer** indo em **View**, ou usar a tecla de atalho `Ctrl+Shift+E`
+3. Ir na opção de **Clone Repository**
+4. Abrir o terminal indo **View** e em seguida **Terminal**, ou usar a tecla de atalho `Ctrl+'`
+5. Rodar o comando abaixo para executar o projeto
+
+> dotnet run
 
 ## Como funciona o projeto:
 
