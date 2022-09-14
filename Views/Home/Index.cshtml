@@ -8,12 +8,12 @@
 
 @using (Html.BeginForm())
 {
-    <input class="btn btn-primary text-center" type="submit" value="Iniciar Torneio" />
+    <input class="btn btn-primary m-lg-2" type="submit" value="Iniciar Torneio" />
     <div class="card-deck d-flex flex-wrap">
         @for(int i = 0; i < Model.Count; i++)
         {
 
-            <div class="card bg-light m-lg-2 mb-2" style="width: 12rem;" >
+            <div class="card bg-light m-lg-2 mb-2" style="width: 14rem;" >
                 <div class="card-body text-center">
                     <header class="card-header"> @Model[i].Nome </header>
                     <label class="mb-2" >Selecionar: </label>
