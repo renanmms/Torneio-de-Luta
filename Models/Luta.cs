@@ -3,32 +3,37 @@ namespace Torneio_de_Luta.Models
 {
     public class Luta
     {
-        private readonly Lutador _atleta1;
-        private readonly Lutador _atleta2;
+        private readonly Lutador _primeiroLutador;
+        private readonly Lutador _segundoLutador;
         public Lutador Vencedor { get; private set; }
 
-        public Luta(Lutador atleta1, Lutador atleta2)
+        public Luta(Lutador primeiroLutador, Lutador segundoLutador)
         {
-            _atleta1 = atleta1;
-            _atleta2 = atleta2;
+            _primeiroLutador = primeiroLutador;
+            _segundoLutador = segundoLutador;
         }
 
         public Lutador DefinirVencedor()
         {
-            
-            float porcentagemDeVitoriasDoAtleta1 = ((float)_atleta1.Vitorias / (float)_atleta1.Lutas) * 100.0f;
-            float porcentagemDeVitoriasDoAtleta2 = ((float)_atleta2.Vitorias / (float)_atleta2.Lutas) * 100.0f;
+            var numeroDeVitoriasDoPrimeiroAtleta = (float)_primeiroLutador.Vitorias;
+            var numeroTotalDeLutasDoPrimeiroAtleta = (float)_primeiroLutador.Lutas;
 
-            if((int)porcentagemDeVitoriasDoAtleta1 > (int)porcentagemDeVitoriasDoAtleta2)
+            var numeroDeVitoriasDoSegundoAtleta = (float)_segundoLutador.Vitorias;
+            var numeroTotalDeLutasDoSegundoAtleta = (float)_segundoLutador.Lutas;
+
+            var porcentagemDeVitoriasDoPrimeiroAtleta = (numeroDeVitoriasDoPrimeiroAtleta / numeroTotalDeLutasDoPrimeiroAtleta) * 100.0f;
+            var porcentagemDeVitoriasDoSegundoAtleta = (numeroDeVitoriasDoSegundoAtleta / numeroTotalDeLutasDoSegundoAtleta) * 100.0f;
+
+            if((int)porcentagemDeVitoriasDoPrimeiroAtleta > (int)porcentagemDeVitoriasDoSegundoAtleta)
             {
-                Vencedor = _atleta1;
-            }else if ((int)porcentagemDeVitoriasDoAtleta1 == (int)porcentagemDeVitoriasDoAtleta2)
+                Vencedor = _primeiroLutador;
+            }else if ((int)porcentagemDeVitoriasDoPrimeiroAtleta == (int)porcentagemDeVitoriasDoSegundoAtleta)
             {
                 Vencedor = DefinirDesempate();
             }
             else
             {
-                Vencedor = _atleta2;
+                Vencedor = _segundoLutador;
             }
 
             Vencedor.Vitorias++;
@@ -41,17 +46,20 @@ namespace Torneio_de_Luta.Models
         private Lutador DefinirDesempate()
         {
             var resultadoDoDesempate = new Lutador();
-            if(_atleta1.ArtesMarciais.Count() > _atleta2.ArtesMarciais.Count())
+            var qtdDeArtesMarciaisDoPrimeiroAtleta = _primeiroLutador.ArtesMarciais.Count;
+            var qtdDeArtesMarciaisDoSegundoAtleta = _segundoLutador.ArtesMarciais.Count;
+
+            if(qtdDeArtesMarciaisDoPrimeiroAtleta > qtdDeArtesMarciaisDoSegundoAtleta)
             {
-                resultadoDoDesempate = _atleta1;
+                resultadoDoDesempate = _primeiroLutador;
             }
-            else if (_atleta1.ArtesMarciais.Count() == _atleta2.ArtesMarciais.Count())
+            else if (qtdDeArtesMarciaisDoPrimeiroAtleta == qtdDeArtesMarciaisDoSegundoAtleta)
             {
-                resultadoDoDesempate = (_atleta1.Lutas > _atleta2.Lutas) ? _atleta1 : _atleta2;
+                resultadoDoDesempate = (_primeiroLutador.Lutas > _segundoLutador.Lutas) ? _primeiroLutador : _segundoLutador;
             }
             else
             {
-                resultadoDoDesempate = _atleta2;
+                resultadoDoDesempate = _segundoLutador;
             }
 
             return resultadoDoDesempate;
