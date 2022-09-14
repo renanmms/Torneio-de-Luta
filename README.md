@@ -1,6 +1,6 @@
 # Torneio de Luta
 
-O projeto Torneio de Luta foi feito com ASP.NET Core MVC e C#, consiste em uma tela com 37 lutadores da qual é necessário selecionar 16 lutadores, iniciar o torneio e descobrir quem é o campeão baseado nos critérios propostos para um teste técnico em um processo seletivo.
+O projeto Torneio de Luta foi feito com ASP.NET Core MVC e C#, consiste em uma tela com 37 lutadores onde é selecionado 16 lutadores para participar do torneio e descobrir quem é o campeão baseado nos critérios propostos para um teste técnico em um processo seletivo.
 
 ## Requisitos Necessários:
 
@@ -18,9 +18,19 @@ O projeto Torneio de Luta foi feito com ASP.NET Core MVC e C#, consiste em uma t
 4. Abrir o **Gerenciador de Soluções** indo em **Exibir**, e em seguida abrir a solução.
 5. Rodar o projeto indo na opção **Depurar** e **Iniciar Depuração**, ou aperte a tecla de atalho **F5**.
 
-## Como funciona:
+## Como funciona o projeto:
 
-A tela inicial possui 37 lutadores da qual é possível selecionar somente 16 deles, indo no checkbox e marcando os lutadores que irão participar do torneio, após selecionado os participantes, clicar no botão **Iniciar Torneio**.
+A tela inicial possui 37 lutadores da qual é possível selecionar somente 16 deles, para cada um dos lutadores é mostrado os seguintes dados:
+
+- Nome
+- Idade
+- Lutas
+- Vitórias
+- Derrotas
+- Quantidade de Artes Marciais
+
+
+Para selecionar os Lutadores que irão participar do Torneio, basta clicar nas caixas de seleção que ficam logo abaixo do nome do Lutador, após selecionado os participantes, clicar no botão **Iniciar Torneio**.
 
 ![image](https://user-images.githubusercontent.com/41764187/190054949-3b97fd64-d1a3-4f0d-8199-96b229127279.png)
 
