@@ -6,17 +6,24 @@ namespace Torneio_de_Luta.Services.Implementation
 {
     public class ApiService : IApiService
     {
+        private readonly string _baseUrl;
+        private readonly string _apiKey;
+        private readonly string _schema;
+        public ApiService(IConfiguration configuration)
+        {
+            _baseUrl = configuration.GetSection("ApiSettings:Url").Value;
+            _apiKey = configuration.GetSection("ApiSettings:ApiKey").Value;
+            _schema = configuration.GetSection("ApiSettings:Schema").Value;
+        }
         public async Task<List<Lutador>> GetLutadores()
         {
             var lutadores = new List<Lutador>();
             var client = new HttpClient();
 
-            var apiUrl = "https://apidev-mbb.t-systems.com.br:8443/edgemicro_tsdev/torneioluta/api/competidores";
-            var schema = "X-API-Key";
-            var apiKey = "29452a07-5ff9-4ad3-b472-c7243f548a33";
+            var apiUrl = $"{_baseUrl}/edgemicro_tsdev/torneioluta/api/competidores";
             var mediaType = new MediaTypeWithQualityHeaderValue("application/json");
 
-            client.DefaultRequestHeaders.Add(schema, apiKey);
+            client.DefaultRequestHeaders.Add(_schema, _apiKey);
             client.DefaultRequestHeaders.Accept.Add(mediaType);
             var response = client.GetAsync(apiUrl).Result;
 
