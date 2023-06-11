@@ -15,7 +15,9 @@ O projeto Torneio de Luta foi feito com ASP.NET Core MVC e C#, consiste em uma t
 2. Abrir uma nova janela do Visual Studio Community e ir na opção de **Clonar um repositório**.
 3. Preencher o campo **Local do repositório** com o link do repositório.
 
-> https://github.com/renanmms/Torneio-de-Luta.git
+```
+https://github.com/renanmms/Torneio-de-Luta.git
+```
 
 4. Abrir o **Gerenciador de Soluções** indo em **Exibir**, e em seguida abrir a solução.
 5. Rodar o projeto indo na opção **Depurar** e **Iniciar Depuração**, ou aperte a tecla de atalho **F5**.
@@ -28,8 +30,9 @@ O projeto Torneio de Luta foi feito com ASP.NET Core MVC e C#, consiste em uma t
 4. Abrir o terminal indo **View** e em seguida **Terminal**, ou usar a tecla de atalho `Ctrl+'`
 5. Rodar o comando abaixo para executar o projeto
 
-> dotnet run
-
+```bash
+dotnet run
+```
 ## Como funciona o projeto:
 
 A tela inicial possui 37 lutadores da qual é possível selecionar somente 16 deles, para cada um dos lutadores é mostrado os seguintes dados:
